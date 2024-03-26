@@ -27,7 +27,7 @@ jobs:
       - name: NPM Install
         run: npm install # Add your specific npm install command
       - name: Docker Login
-        run:  docker login -u folaar -p dckr_pat_dRQXzDNio0DoG7Gb05RJ9RP6htc
+        run:  docker login -u folaar --Adedoyin13!-stdin
       - name: Docker Scout Scan
         run: |
           docker-scout quickview fs://.
@@ -37,7 +37,7 @@ jobs:
           # Run commands to build and push Docker images
           docker build -t myntra .
           docker tag myntra folaar/myntra:latest
-          docker login -u folaar -p dckr_pat_dRQXzDNio0DoG7Gb05RJ9RP6htc
+          docker login -u folaar -- Adedoyin13!-stdin
           docker push folaar/myntra:latest
         env:
           DOCKER_CLI_ACI: 1
