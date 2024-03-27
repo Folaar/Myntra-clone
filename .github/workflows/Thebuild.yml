@@ -30,6 +30,8 @@ jobs:
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Docker Scout Scan
         run: |
+          echo "export PATH=\$PATH:/path/to/docker-scout-directory" >> $GITHUB_ENV
+          source $GITHUB_ENV
           echo $PATH
           docker-scout quickview fs://.
           docker-scout cves fs://.
