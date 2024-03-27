@@ -37,6 +37,9 @@ jobs:
           docker push folaar/myntra:latest
         env:
           DOCKER_CLI_ACI: 1
-       deploy:
+      - deploy:
          needs: build-analyze-scan
          runs-on: self-hosted # Use your self-hosted runner label here
+      - name: Run the container
+        run: docker run -d --name myntra -p 3000:3000 sevenajay/myntra:latest
+
