@@ -39,6 +39,6 @@ jobs:
         run: aws eks --region us-east-1 update-kubeconfig --name EKS_CLOUD
       - name: Deploy to Kubernetes
         run: |
+          cd /home/ubuntu/Myntra-clone # Change to the correct directory
           kubectl --context EKS_CLOUD create namespace mynamespace
           kubectl --context EKS_CLOUD apply -f deployment-service.yml
-        working-directory: ./home/ubuntu/Myntra-clone
